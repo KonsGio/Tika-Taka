@@ -9,6 +9,10 @@ import { ImCancelCircle } from 'react-icons/im';
 const Sidebar = () => {
   const [showSidebar, setShowSidebar] = useState(true);
   const normalLink = 'flex items-center gpa-3 hover:bg-primary p-3 justify-center xl:justify-start cursor-pointer font-semibold text-[#631A18]';
+  // userProfile. user login check
+  const userProfile = false;
+  
+  
   return (
     <div>
       <div className='block xl:hidden m-2 ml-4 mt-3 text-xl'
@@ -35,6 +39,22 @@ const Sidebar = () => {
                   </div>
                 </Link>
             </div>
+            {/* if there is no user profile then login */}
+        {!userProfile && (
+          // hidden and appearing only on xl devices
+          <div className='px-2 py-4 hidden xl:block'>
+            <p className='text-gray-400'>Log in to like and comment posts!</p>
+            <div className='pr-4'>
+              {/* Visit https://www.npmjs.com/package/react-google-login for more info about google login*/}
+              <GoogleLogin 
+                clientId=''
+                onSuccess={() => {}}
+                onFailure={() => {}}
+                cookiePolicy='single_host_origin'
+              />
+            </div>
+          </div>
+        )}
         </div>
       )}
     </div>
