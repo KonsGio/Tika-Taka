@@ -13,7 +13,7 @@ import Footer from './Footer';
 
 const Sidebar = () => {
   const [showSidebar, setShowSidebar] = useState(true);
-  const normalLink = 'flex items-center gpa-3 hover:bg-primary p-3 justify-center xl:justify-start cursor-pointer font-semibold text-[#631A18]';
+  const normalLink = 'flex items-center gpa-3 hover:bg-primary p-3 justify-center xl:justify-start cursor-pointer font-semibold text-[#9A100E]';
   // userProfile. user login check
   const userProfile = false;
   
@@ -55,9 +55,9 @@ const Sidebar = () => {
                 clientId=''
                 render={renderProps => (
                   <button 
-                  className='cursor-pointer bg-white text-lg text-[#631A18] border-[1px] 
-                  border-[#631A18] font-semibold px-6 py-3 rounded-md
-                  outline-noce w-full mt-3 hover:text-white hover:bg-[#631A18]'
+                  className='cursor-pointer bg-white text-lg text-[#9A100E] border-[1px] 
+                  border-[#9A100E] font-semibold px-6 py-3 rounded-md
+                  outline-noce w-full mt-3 hover:text-white hover:bg-[#9A100E]'
                   onClick={renderProps.onClick} 
                   disabled={renderProps.disabled}>Log in</button>
                 )}
