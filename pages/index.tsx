@@ -1,3 +1,4 @@
+// we fetch data-videos from sanity
 import type { NextPage } from 'next'
 
 
