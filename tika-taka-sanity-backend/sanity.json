@@ -1,11 +1,11 @@
 {
   "root": true,
+  "api": {
+    "projectId": "hvd62i26",
+    "dataset": "production"
+  },
   "project": {
     "name": "tika-taka-sanity-backend"
-  },
-  "api": {
-    "projectId": "tchkh799",
-    "dataset": "production"
   },
   "plugins": [
     "@sanity/base",
