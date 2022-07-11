@@ -25,7 +25,7 @@ const Sidebar = () => {
       </div>
       {/* dynamic block. if showSidebar is true and then*/}
       {showSidebar &&(
-        <div className='xl:2-400 w-20 flex flex-col justify-start mb-10 border-r-2
+        <div className='xl:w-400 w-20 flex flex-col justify-start mb-10 border-r-2
                         border-gray-100 xl:border-0 p-3'>
             <div className='cl:border-b-2 border-gray-200 xl:pb-4'>
                 <Link href='/'>
@@ -48,6 +48,14 @@ const Sidebar = () => {
               {/* Visit https://www.npmjs.com/package/react-google-login for more info about google login*/}
               <GoogleLogin 
                 clientId=''
+                render={renderProps => (
+                  <button 
+                  className='cursor-pointer bg-white text-lg text-[#631A18] border-[1px] 
+                  border-[#631A18] font-semibold px-6 py-3 rounded-md
+                  outline-noce w-full mt-3 hover:text-white hover:bg-[#631A18]'
+                  onClick={renderProps.onClick} 
+                  disabled={renderProps.disabled}>Log in</button>
+                )}
                 onSuccess={() => {}}
                 onFailure={() => {}}
                 cookiePolicy='single_host_origin'
