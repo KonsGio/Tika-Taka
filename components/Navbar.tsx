@@ -7,10 +7,23 @@ import { AiOutlineLogout } from 'react-icons/ai';
 import { BiSearch } from 'react-icons/bi';
 import { IoMdAdd } from 'react-icons/io';
 
+import Logo from '../utils/tikitaka-logo.png';
 
 const Navbar = () => {
   return (
-    <div>Navbar</div>
+    <div>
+      {/* link point at home page */}
+      <Link href='/'>
+        <div>
+          <Image
+            className='cursor-pointer'
+            src={Logo}
+            alt='TikaTaka'
+            layout='responsive'
+          />
+        </div>
+      </Link>
+    </div>
   )
 }
 
