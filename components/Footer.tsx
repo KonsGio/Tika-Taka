@@ -2,7 +2,7 @@ import React from 'react';
 import { footerList1,footerList2, footerList3   } from '../utils/constants';
 
 
-
+  // we map through all footer items
   // in typescript we spacify which type is the item element it is an array of strings   const List = ({items} : {items: string[] }) => {
   const List = ({items, mt} : {items: string[], mt:boolean }) => (
     <div className={`flex flex-wrap gap-2 ${mt && 'mt-5'}`}>
