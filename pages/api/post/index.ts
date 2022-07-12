@@ -8,13 +8,15 @@ type Data = {
 }
 // req:NextApiRequest means we are using typescript
 // Inside NextApiRequest we see what it prints
-export default function handler(req: NextApiRequest,res: NextApiResponse) {
+export default async function handler(req: NextApiRequest,res: NextApiResponse) {
     // Its route can be any of the HTTP types post,get etc
   if(req.method === 'GET'){
     // Then we call all the videos
     const query = allPostsQuery();
 
-    // Now we fetch data from sanity
-    // const data = await client...
+    // Now we fetch data from sanity with await fetch in async function
+    const data = await client.fetch(query);
+
+    res.status(200).json(data);
   }
 }
