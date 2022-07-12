@@ -7,7 +7,7 @@ import {NextPage} from 'next';
 interface IProps {
     post:Video;
 }
-
+// 2.To specify a type
 const VideoCard:NextPage<IProps> =  ({post}) => {
   return (
     <div>VideoCard</div>
