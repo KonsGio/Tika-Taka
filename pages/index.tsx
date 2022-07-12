@@ -2,6 +2,10 @@
 import type { NextPage } from 'next';
 import axios from 'axios';
 import {Video} from '../types';
+import VideoCard from '../components/VideoCard';
+import NoResults from '../components/NoResults';
+
+
 //6.Whenever we are accepting props inside a typescript tsx page we have to create an interface
 //7.We import Video from types and we pass it as an array to videos to get all the data of the video post
 interface IProps {
