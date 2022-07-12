@@ -1,3 +1,4 @@
+// GROQ language similar to GrapQL
 export const allPostsQuery = () => {
   const query = `*[_type == "post"] | order(_createdAt desc){
     _id,
