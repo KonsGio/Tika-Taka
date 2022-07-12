@@ -13,8 +13,14 @@ interface IProps {
 const Home = ({videos}: IProps) => {
   console.log(videos);
   return (
-    <div className='text-3xl font-bold underline'>
-      Tika Taka
+    <div className='flex flex-col gap-10 videos h-full'>
+      {videos.length ? (
+        videos.map((video:Video) => (
+          <VideoCard post={video} key={video._id}/>
+        ))
+      ):(
+        <NoResults text={'No videos to see'}/>
+     )}
     </div>
   )
 }
