@@ -19,5 +19,5 @@ export const createOrGetUser = async (response: any) => {
   }
 //4. We make an API call with axios
 // 5. we are passing the user data and now we will create the API route at api/auth.ts 
-await axios.post('hhtp://localhost:3000/api/auth', user);
+await axios.post('http://localhost:3000/api/auth', user);
 };
