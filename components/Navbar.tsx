@@ -41,7 +41,31 @@ const Navbar = () => {
       </div>  
       <div>
         {userProfile ? (
-          <div>{userProfile.image}</div>
+          <div className='flex gap-5 md:gap-10'>
+            <Link href='/upload'>
+              <button className='border-2 px-2 md:px-4
+                text-md font-semibold flex items-center
+                gap-2'>
+                <IoMdAdd className='text-xl'/>{''}
+                <span className='hidden md:block'>Upload</span>
+              </button>
+            </Link>
+            {userProfile.image && (
+               <Link href='/'>
+               {/* 5. You cant put an image as a child component of a link  thats why
+               we create a new empty react fragment to put image inside */}
+               <>
+                 <Image 
+                   width={40}
+                   height={40}
+                   className='rounded-full cursor-pointer'
+                   src={userProfile.image}
+                   alt='profile photo'
+                 />
+               </>
+             </Link>
+            )}
+          </div>
         ) : (
           <GoogleLogin
           // 4.We add the user
