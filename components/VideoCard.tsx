@@ -84,15 +84,32 @@ const VideoCard:NextPage<IProps> =  ({post}) => {
                 <div>
                   {playing ? (
                   <button>
-                    <BsFillPauseFill />
+                    <BsFillPauseFill className='text-black
+                    text-2xl lg:text-4xl'/>
                   </button>
                   ) : (
                     <button>
-                      <BsFillPlayFill />
+                      <BsFillPlayFill className='text-black
+                      text-2xl lg:text-4xl'/>
+                    </button>
+                  )}
+                </div>
+              )}{isHover && (
+                <div>
+                  {isVideoMuted ? (
+                  <button>
+                    <HiVolumeOff className='text-black
+                    text-2xl lg:text-4xl'/>
+                  </button>
+                  ) : (
+                    <button>
+                      <HiVolumeUp className='text-black
+                      text-2xl lg:text-4xl'/>
                     </button>
                   )}
                 </div>
               )}
+              
             </div>
       </div>
     </div>
