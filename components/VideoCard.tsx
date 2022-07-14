@@ -26,8 +26,18 @@ const VideoCard:NextPage<IProps> =  ({post}) => {
   const [isHover, setisHover] = useState(false);
   const [playing, setplaying] = useState(false);
   const [isVideoMuted, setisVideoMuted] = useState(false);
-
-
+//6.To change the state of the video (plays pause volumes) we need to use ref
+  const videoRef = useRef(null);
+// 8. We create new function on video press
+  const onVideoPress () => {
+    if(playing){
+      videoRef.current?.pause();
+      setplaying(false);
+    }else{
+      videoRef.current?.play();
+      setplaying(true);
+    }
+  }
   return (
     <div className='flex flex-col border-b-2 border-gray-200 pb-6'>
       <div>
@@ -75,6 +85,8 @@ const VideoCard:NextPage<IProps> =  ({post}) => {
               <Link href='/'>
                   <video 
                       loop
+                       {/* 7. Here we attach the useRef to our video */}
+                      ref={videoRef}
                       className='lg:w-[600px] h-[300px] md:h-[400px] lg:h-[530px] w-[200px] rounded-2xl cursor-pointer bg:gray-100'
                       src={post.video.asset.url}>
                       
@@ -93,9 +105,6 @@ const VideoCard:NextPage<IProps> =  ({post}) => {
                       text-2xl lg:text-4xl'/>
                     </button>
                   )}
-                </div>
-              )}{isHover && (
-                <div>
                   {isVideoMuted ? (
                   <button>
                     <HiVolumeOff className='text-black
@@ -109,7 +118,6 @@ const VideoCard:NextPage<IProps> =  ({post}) => {
                   )}
                 </div>
               )}
-              
             </div>
       </div>
     </div>
