@@ -23,9 +23,7 @@ interface IProps {
 // 2.To specify a type
 const VideoCard:NextPage<IProps> =  ({post}) => {
 
-  const [isHover, setisHover] = useState(false);
   const [playing, setPlaying] = useState(false);
-  const [isVideoMuted, setisVideoMuted] = useState(false);
 //6.To change the state of the video (plays pause volumes) we need to use ref
   const videoRef = useRef<HTMLVideoElement>(null);
 // 8. We create new function on video press and for this to work we change useRef(null) to useRef<HTMLVideoElement>(null)
@@ -79,13 +77,26 @@ const VideoCard:NextPage<IProps> =  ({post}) => {
       </div>
       <div className='lg:ml-20 flex gap-4 relative'>
             <div 
-              onMouseEnter={() => setisHover(true)}
-              onMouseLeave={() => setisHover(false)}
               className='rounded-xl'>
               <Link href='/'>
+                {/* More setting for video
+                 interface MediaHTMLAttributes<T> extends HTMLAttributes<T> {
+                 autoPlay?: boolean | undefined;
+                 controls?: boolean | undefined;
+                 controlsList?: string | undefined;
+                 crossOrigin?: string | undefined;
+                 loop?: boolean | undefined;
+                 mediaGroup?: string | undefined;
+                 muted?: boolean | undefined;
+                 playsInline?: boolean | undefined;
+                 preload?: string | undefined;
+                 src?: string | undefined;
+                 }
+                  */}
                   <video 
                       onClick={onVideoPress}
                       loop
+                      controls
                       //7. Here we attach the useRef to our video 
                       ref={videoRef}
                       className='lg:w-[600px] h-[300px] md:h-[400px] lg:h-[530px] w-[200px] rounded-2xl cursor-pointer bg:gray-100'
@@ -93,32 +104,6 @@ const VideoCard:NextPage<IProps> =  ({post}) => {
                       
                   </video>
               </Link>
-              {isHover && (
-                <div>
-                  {playing ? (
-                  <button onClick={onVideoPress}>
-                    <BsFillPauseFill className='text-black
-                    text-2xl lg:text-4xl'/>
-                  </button>
-                  ) : (
-                    <button onClick={onVideoPress}>
-                      <BsFillPlayFill className='text-black
-                      text-2xl lg:text-4xl'/>
-                    </button>
-                  )}
-                  {isVideoMuted ? (
-                  <button >
-                    <HiVolumeOff className='text-black
-                    text-2xl lg:text-4xl'/>
-                  </button>
-                  ) : (
-                    <button>
-                      <HiVolumeUp className='text-black
-                      text-2xl lg:text-4xl'/>
-                    </button>
-                  )}
-                </div>
-              )}
             </div>
       </div>
     </div>
