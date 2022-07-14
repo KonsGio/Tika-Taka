@@ -22,6 +22,12 @@ interface IProps {
 }
 // 2.To specify a type
 const VideoCard:NextPage<IProps> =  ({post}) => {
+
+  const [isHover, setisHover] = useState(false);
+  const [playing, setplaying] = useState(false);
+  const [isVideoMuted, setisVideoMuted] = useState(false);
+
+
   return (
     <div className='flex flex-col border-b-2 border-gray-200 pb-6'>
       <div>
@@ -62,7 +68,10 @@ const VideoCard:NextPage<IProps> =  ({post}) => {
         </div>
       </div>
       <div className='lg:ml-20 flex gap-4 relative'>
-            <div className='rounded-3xl'>
+            <div 
+              onMouseEnter={() => setisHover(true)}
+              onMouseLeave={() => setisHover(false)}
+              className='rounded-3xl'>
               <Link href='/'>
                   <video 
                       loop
@@ -71,6 +80,19 @@ const VideoCard:NextPage<IProps> =  ({post}) => {
                       
                   </video>
               </Link>
+              {isHover && (
+                <div>
+                  {playing ? (
+                  <button>
+                    <BsFillPauseFill />
+                  </button>
+                  ) : (
+                    <button>
+                      <BsFillPlayFill />
+                    </button>
+                  )}
+                </div>
+              )}
             </div>
       </div>
     </div>
