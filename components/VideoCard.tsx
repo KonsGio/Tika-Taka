@@ -24,18 +24,18 @@ interface IProps {
 const VideoCard:NextPage<IProps> =  ({post}) => {
 
   const [isHover, setisHover] = useState(false);
-  const [playing, setplaying] = useState(false);
+  const [playing, setPlaying] = useState(false);
   const [isVideoMuted, setisVideoMuted] = useState(false);
 //6.To change the state of the video (plays pause volumes) we need to use ref
-  const videoRef = useRef(null);
-// 8. We create new function on video press
-  const onVideoPress () => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+// 8. We create new function on video press and for this to work we change useRef(null) to useRef<HTMLVideoElement>(null)
+  const onVideoPress = () => {
     if(playing){
-      videoRef.current?.pause();
-      setplaying(false);
+      videoRef?.current?.pause();
+      setPlaying(false);
     }else{
-      videoRef.current?.play();
-      setplaying(true);
+      videoRef?.current?.play();
+      setPlaying(true);
     }
   }
   return (
@@ -81,11 +81,12 @@ const VideoCard:NextPage<IProps> =  ({post}) => {
             <div 
               onMouseEnter={() => setisHover(true)}
               onMouseLeave={() => setisHover(false)}
-              className='rounded-3xl'>
+              className='rounded-xl'>
               <Link href='/'>
                   <video 
+                      onClick={onVideoPress}
                       loop
-                       {/* 7. Here we attach the useRef to our video */}
+                      //7. Here we attach the useRef to our video 
                       ref={videoRef}
                       className='lg:w-[600px] h-[300px] md:h-[400px] lg:h-[530px] w-[200px] rounded-2xl cursor-pointer bg:gray-100'
                       src={post.video.asset.url}>
@@ -95,18 +96,18 @@ const VideoCard:NextPage<IProps> =  ({post}) => {
               {isHover && (
                 <div>
                   {playing ? (
-                  <button>
+                  <button onClick={onVideoPress}>
                     <BsFillPauseFill className='text-black
                     text-2xl lg:text-4xl'/>
                   </button>
                   ) : (
-                    <button>
+                    <button onClick={onVideoPress}>
                       <BsFillPlayFill className='text-black
                       text-2xl lg:text-4xl'/>
                     </button>
                   )}
                   {isVideoMuted ? (
-                  <button>
+                  <button >
                     <HiVolumeOff className='text-black
                     text-2xl lg:text-4xl'/>
                   </button>
