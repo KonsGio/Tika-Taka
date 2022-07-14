@@ -2,6 +2,7 @@
 
 # dependencies
 /node_modules
+tika-taka-sanity-backend/node_modules
 /.pnp
 .pnp.js
 # testing
