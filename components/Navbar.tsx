@@ -11,6 +11,7 @@ import Logo from '../utils/tikitaka-logo.png';
 // 2.Google Authentication with new google login web service (Google Identity Services)
 // 3.Installing npm install @react-oauth/google jwt-decode (jwt decode is for loading profile images and such)
 import { GoogleLogin,googleLogout } from '@react-oauth/google';
+import { createOrGetUser } from '../utils';
 
 
 const Navbar = () => {
@@ -40,7 +41,7 @@ const Navbar = () => {
           <div>Logged in</div>
         ) : (
           <GoogleLogin
-            onSuccess={(response) => console.log(response)}
+            onSuccess={(response) => createOrGetUser(response)}
             onError={() => console.log('Error')}
           />
         )}
