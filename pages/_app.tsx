@@ -24,7 +24,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     // 6. To find clientid we go to https://console.cloud.google.com/ -> create app -> Oauth consent -> Credentials -> create oauth
-    <GoogleOAuthProvider clientId={`process.env.NEXT_PUBLIC_GOOGLE_API_TOKEN`}>
+    <GoogleOAuthProvider clientId={`${process.env.NEXT_PUBLIC_GOOGLE_API_TOKEN}`}>
       <Navbar/>
       {/* we use tailwind -> styles inside jsx */}
       <div className='flex gap-6 md:gap-20'>
@@ -36,7 +36,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         </div>
       </div>
     </GoogleOAuthProvider>
-  )
+  ) 
 }
 
 export default MyApp
