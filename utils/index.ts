@@ -1,7 +1,9 @@
 import axios from 'axios';
 import jwt_decode from 'jwt-decode';
 
-export const createOrGetUser = async (response: any) => {
+// We add user here also
+
+export const createOrGetUser = async (response: any, addUser:any) => {
 
 
 //1. We deconstructed the data that we take from google log in fetched object
@@ -17,6 +19,12 @@ export const createOrGetUser = async (response: any) => {
     image: picture
 //3. This was the user object creation
   }
+
+
+  // 6. We will use Zustand to save loged in user 
+  addUser(user);
+  // 7.To implement the entire store we create store folder
+
 //4. We make an API call with axios
 // 5. we are passing the user data and now we will create the API route at api/auth.ts 
 await axios.post('http://localhost:3000/api/auth', user);

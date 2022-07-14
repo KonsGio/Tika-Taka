@@ -12,7 +12,6 @@ interface IProps {
 }
 // 2.To specify a type
 const VideoCard:NextPage<IProps> =  ({post}) => {
-
   const [playing, setPlaying] = useState(false);
 //6.To change the state of the video (plays pause volumes) we need to use ref
   const videoRef = useRef<HTMLVideoElement>(null);
