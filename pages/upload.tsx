@@ -127,7 +127,7 @@ const Upload = () => {
                                                 Up to 10 minutes <br/>
                                                 Less than 100 MB
                                             </p>
-                                            <p className='bg-[#9A100E] text-center mt-10 rounded text-white text-md font-medium p-2 w-52 outline-none'>
+                                            <p className='bg-[#9A100E] text-center mt-10 rounded text-white text-md font-medium p-2 w-52 outline-none hover:bg-[#f1100E]'>
                                                 Select File
                                             </p>
                                         </div>
@@ -156,7 +156,7 @@ const Upload = () => {
                     onChange={(e) => setCaption(e.target.value)}
                     className='rounded outline-none text-md border-2 border-gray-200 p-2'
                  />
-                    <label className='flex flex-col gap-3 pb-10'>
+                    <label className='text-md font-medium'>
                         Choose a category
                     </label>
                     <select
@@ -178,14 +178,14 @@ const Upload = () => {
                             <button
                             onClick={() => {}}
                             type='button'
-                            className='border-gray-300 border-2 text-md font-medium p-2 rounded w-28 lg:w-44 outline-none'
+                            className='border-gray-300 border-2 text-md font-medium p-2 rounded w-28 lg:w-44 outline-none hover:bg-primary'
                             >
                                 Discard
                             </button>
                             <button
                             onClick={handlePost}
                             type='button'
-                            className='bg-[#9A100E] text-white text-md font-medium p-2 rounded w-28 lg:w-44 outline-none'
+                            className='bg-[#9A100E] text-white text-md font-medium p-2 rounded w-28 lg:w-44 outline-none hover:bg-[#f1100E]'
                             >
                                 Post
                             </button>
