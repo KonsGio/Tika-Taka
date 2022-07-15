@@ -67,7 +67,7 @@ const VideoCard:NextPage<IProps> =  ({post}) => {
       <div className='lg:ml-20 flex gap-4 relative'>
             <div 
               className='rounded-xl'>
-              <Link href='/'>
+              <Link href={`/detail/${post._id}`}>
                 {/* More setting for video
                  interface MediaHTMLAttributes<T> extends HTMLAttributes<T> {
                  autoPlay?: boolean | undefined;
