@@ -27,5 +27,4 @@ export default async function handler(req: NextApiRequest,res: NextApiResponse) 
   }
 }
 
-    // #####THIS PROCEDURE WILL ADD NEW USER IN OUR SANITY DATABASE#####
 
