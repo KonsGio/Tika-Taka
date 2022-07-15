@@ -10,6 +10,9 @@ import axios from 'axios';
 import { BASE_URL } from '../../utils';
 import { Video } from '../../types';
 import useAuthStore from '../../store/authStore';
+import LikeButton from '../../components/LikeButton';
+import Comments from '../../components/Comments';
+
 
 // We will fetch our data by using the id inside of the url
 
