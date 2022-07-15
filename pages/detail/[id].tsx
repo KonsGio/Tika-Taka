@@ -9,11 +9,16 @@ import { BsFillPlayFill } from 'react-icons/bs';
 import { HiVolumeUp, HiVolumeOff} from 'react-icons/hi';
 import axios from 'axios';
 import { BASE_URL } from '../../utils';
+import { Video } from '../../types';
 
 
 // We will fetch our data by using the id inside of the url
 
-const Detail = () => {
+interface IProps {
+  postDetails:Video,
+}
+
+const Detail = ({postDetails} : IProps) => {
   return (
     <div>
 
@@ -22,6 +27,8 @@ const Detail = () => {
 }
 
 export const getServerSideProps = async ({params: {id}
+} : {
+  params: {id: string}
 }) => {
   const { data } = await axios.get(`${BASE_URL}/api/post/${id}`)
 
