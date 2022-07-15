@@ -31,7 +31,7 @@ const LikeButton = ({likes,handleLike,handleDislike} : IProps) => {
 
 // handleLike and handleDislike are created in video details [id].tsx
   return (
-    <div className='gap-6 '>
+    <div className='flex gap-6 '>
       <div className='mt-4 flex flex-col justify-center items-center cursor-pointer'>
         {alreadyLiked ? (
           <div className='bg-primary rounded-full p-2 md:p-4 text-[#9A100E]'
