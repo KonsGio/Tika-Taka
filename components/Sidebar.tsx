@@ -44,30 +44,6 @@ const Sidebar = () => {
                   </div>
                 </Link>
             </div>
-            {/* if there is no user profile then login */}
-        {!userProfile && (
-          // hidden and appearing only on xl devices
-          <div className='px-2 py-4 hidden xl:block'>
-            <p className='text-gray-400'>Log in to like and comment posts!</p>
-            <div className='pr-4'>
-              {/* Visit https://www.npmjs.com/package/react-google-login for more info about google login*/}
-              <GoogleLogin 
-                clientId=''
-                render={renderProps => (
-                  <button 
-                  className='cursor-pointer bg-white text-lg text-[#9A100E] border-[1px] 
-                  border-[#9A100E] font-semibold px-6 py-3 rounded-md
-                  outline-noce w-full mt-3 hover:text-white hover:bg-[#9A100E]'
-                  onClick={renderProps.onClick} 
-                  disabled={renderProps.disabled}>Log in</button>
-                )}
-                onSuccess={() => {}}
-                onFailure={() => {}}
-                cookiePolicy='single_host_origin'
-              />
-            </div>
-          </div>
-        )}
         {/* import components quickly by doubleclicking component and then ctr+space+win */}
         <Discover />
         <SuggestedAccounts />
