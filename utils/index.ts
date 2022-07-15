@@ -1,6 +1,9 @@
 import axios from 'axios';
 import jwt_decode from 'jwt-decode';
 
+// To use this NEXT_PUBLIC_BASE_URL everywhere we must declare it here
+export const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
+
 // We add user here also
 
 export const createOrGetUser = async (response: any, addUser:any) => {
@@ -27,5 +30,5 @@ export const createOrGetUser = async (response: any, addUser:any) => {
 
 //4. We make an API call with axios
 // 5. we are passing the user data and now we will create the API route at api/auth.ts 
-await axios.post('http://localhost:3000/api/auth', user);
+await axios.post(`${BASE_URL}api/auth`, user);
 };

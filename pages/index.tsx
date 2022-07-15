@@ -4,6 +4,7 @@ import axios from 'axios';
 import {Video} from '../types';
 import VideoCard from '../components/VideoCard';
 import NoResults from '../components/NoResults';
+import { BASE_URL } from '../utils';
 
 
 //6.Whenever we are accepting props inside a typescript tsx page we have to create an interface
@@ -33,7 +34,7 @@ const Home = ({videos}: IProps) => {
 //2.We will be fetching videos each time we reload the page
 export const getServerSideProps = async () => {
   //3.api request to our own backend
-  const {data} = await axios.get(`http://localhost:3000/api/post`);
+  const {data} = await axios.get(`${BASE_URL}/api/post`);
 //4.Anything we pass in props will be populated iside real props on const Home: above
   return{
     props:{

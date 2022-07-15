@@ -12,6 +12,7 @@ import { client } from '../utils/client';
 
 // Import all topics
 import { topics } from '../utils/constants';
+import { BASE_URL } from '../utils';
 
 
 const Upload = () => {
@@ -78,7 +79,7 @@ const Upload = () => {
                 topic: category
             }
             // Send it to backend in post -> index.js. We route with next router
-            await axios.post('http://localhost:3000/api/post', document);
+            await axios.post(`${BASE_URL}/api/post`, document);
 
             router.push('/');
         }
