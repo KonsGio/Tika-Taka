@@ -23,10 +23,21 @@ const Upload = () => {
     // Wrong file type state
     const [wrongFileType, setWrongFileType] = useState(false);
     
+    // Caption,category and save post
+    const [caption, setCaption] = useState('');
+    const [category, setCategory] = useState(topics[0].name);
+    const [savingPost, setSavingPost] = useState(false);
+
+    // How to get a user from zustand, user profile of a type (:)
+    const { userProfile } : {userProfile: any} = useAuthStore();
+
+    // Initialize router
+    const router = useRouter();
+
     // Function for uploading video
     const uploadVideo = async (e:any) => {
         const selectedFile = e.target.files[0];
-        const fileTypes = ['Video/mp4', 'Video/webm', 'Video/ogg', 'Video/gif'];
+        const fileTypes = ['video/mp4', 'video/webm', 'video/ogg'];
         // If uploaded video is in right format
         if (fileTypes.includes(selectedFile.type)){
             client.assets.upload('file', selectedFile, {
@@ -43,7 +54,36 @@ const Upload = () => {
             setWrongFileType(true);
         }
     }
- 
+//  If all this are true then save post
+    const handlePost = async () => {
+        if(caption && videoAsset?._id && category){
+            setSavingPost(true);
+
+            // We form a new document to be passed to sanity database for saving
+            const document = {
+                _type:'post',
+                caption,
+                video:{
+                    _type:'file',
+                    asset:{
+                        _type:'reference',
+                        _ref:videoAsset?._id
+                    }
+                },
+                userId: userProfile?._id,
+                postedBy:{
+                    _type:'postedBy',
+                    _ref:userProfile?._id
+                },
+                topic: category
+            }
+            // Send it to backend in post -> index.js. We route with next router
+            await axios.post('http://localhost:3000/api/post', document);
+
+            router.push('/');
+        }
+    }
+
   return (
     <div className='flex w-full h-full absolute left-0 top-[60px] mb-10 pt-10 lg:pt-20 bg-[#f8f8f8] justify-center'>
         <div className='bg-white rounded-lg cl:h-[80vh] w-[60%] flex gap-6 flex-wrap justify-between items-center p-14 pt-6'>
@@ -82,7 +122,7 @@ const Upload = () => {
                                                 </p>
                                             </div>
                                             <p className='text-gray-400 text-center mt-10 text-sm leading-10'>
-                                                MP4, WebM, Gif, Ogg <br/>
+                                                MP4, webm, ogg <br/>
                                                 720*1280 or higher <br/>
                                                 Up to 10 minutes <br/>
                                                 Less than 100 MB
@@ -112,15 +152,15 @@ const Upload = () => {
                  <label className='text-md font-medium'>Caption</label>
                  <input
                     type='text'
-                    value=''
-                    onChange={() => {}}
+                    value={caption}
+                    onChange={(e) => setCaption(e.target.value)}
                     className='rounded outline-none text-md border-2 border-gray-200 p-2'
                  />
                     <label className='flex flex-col gap-3 pb-10'>
                         Choose a category
                     </label>
                     <select
-                    onChange={() => {}}
+                    onChange={(e) => setCategory(e.target.value)}
                     className='outline-none border-2 border-gray-200 text-md capitalize lg:p-4 p-2 rounded cursor-pointer'
                     >
                         {/* Loop all categories when we loop somethin we need a key so react can differentiate it*/}
@@ -143,7 +183,7 @@ const Upload = () => {
                                 Discard
                             </button>
                             <button
-                            onClick={() => {}}
+                            onClick={handlePost}
                             type='button'
                             className='bg-[#9A100E] text-white text-md font-medium p-2 rounded w-28 lg:w-44 outline-none'
                             >
