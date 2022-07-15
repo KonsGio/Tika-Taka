@@ -65,10 +65,10 @@ const VideoCard:NextPage<IProps> =  ({post}) => {
         </div>
         
       </div>
-      <div className='text-center'>
+      <div>
         <Link href={`/detail/${post._id}`}>
-          {post.caption}
-                </Link>
+          <p className='cursor-pointer hover:text-[#9A100E] ml-10 px-10 text-md font-semibold text-gray-600'>{post.caption}</p>
+        </Link>
         </div>
       <div className='lg:ml-20 flex gap-4 relative'>
             
@@ -95,7 +95,7 @@ const VideoCard:NextPage<IProps> =  ({post}) => {
                       controls
                       //7. Here we attach the useRef to our video 
                       ref={videoRef}
-                      className='lg:w-[700px] h-[300px] md:h-[400px] lg:h-[530px] w-[400px] rounded-2xl cursor-pointer bg:gray-100'
+                      className='lg:w-[700px] h-[300px] md:h-[400px] lg:h-[530px] w-[400px] rounded-2xl bg:gray-100'
                       src={post.video.asset.url}>
                   </video>
               
