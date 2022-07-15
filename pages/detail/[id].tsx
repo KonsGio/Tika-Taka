@@ -9,7 +9,7 @@ import { BsFillPlayFill } from 'react-icons/bs';
 import axios from 'axios';
 import { BASE_URL } from '../../utils';
 import { Video } from '../../types';
-
+import useAuthStore from '../../store/authStore';
 
 // We will fetch our data by using the id inside of the url
 
@@ -24,6 +24,8 @@ const Detail = ({postDetails} : IProps) => {
   const videoRef = useRef(null);
 
   const router = useRouter();
+
+  const {userProfile} = useAuthStore();
 
   if(!post) return null;
 
@@ -94,8 +96,15 @@ const Detail = ({postDetails} : IProps) => {
         </div>
               <p className='px-10 text-lg text-gray-600'>{post.caption}</p>
               <div className='mt-10 px-10'>
-                {}
+                {userProfile && (
+                  <LikeButton 
+                  
+                  />
+                )}
               </div>
+              <Comments 
+              
+              />
           </div>
         </div>
     </div>
