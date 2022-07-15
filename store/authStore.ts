@@ -9,7 +9,8 @@ import axios from "axios";
 const authStore = (set:any) => ({
     userProfile:null,
 // 2.Create method addUser set to a function
-    addUser:(user:any) => set({userProfile:user})
+    addUser:(user:any) => set({userProfile:user}),
+    removeUser: () => set({userProfile:null})
 });
 
 const useAuthStore = create(

@@ -19,7 +19,7 @@ import useAuthStore from '../store/authStore';
 
 const Navbar = () => {
   //4
-  const {userProfile, addUser} = useAuthStore();
+  const {userProfile, addUser, removeUser} = useAuthStore();
   
   return (
 
@@ -65,6 +65,17 @@ const Navbar = () => {
                </>
              </Link>
             )}
+            <button
+            type='button'
+            className='px-2'
+            onClick={()=>{
+              // For this to work we add a function in authStore
+              googleLogout();
+              removeUser();
+            }}
+            >
+              <AiOutlineLogout color='red' fontSize={21}/>
+            </button>
           </div>
         ) : (
           <GoogleLogin
