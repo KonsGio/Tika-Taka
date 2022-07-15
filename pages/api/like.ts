@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { uuid } from 'uuidv4';
+import { v4 } from 'uuid';
 import { client } from '../../utils/client';
 
 export default async function handler(req: NextApiRequest,res: NextApiResponse) {
@@ -13,7 +13,7 @@ export default async function handler(req: NextApiRequest,res: NextApiResponse) 
         .setIfMissing({likes:[]})
         .insert('after', 'likes[-1]',[
             {
-                _key:uuid(),
+                _key:v4(),
                 _ref:userId
             }
         ])
