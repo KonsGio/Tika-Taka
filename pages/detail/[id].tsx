@@ -82,22 +82,22 @@ const Detail = ({postDetails} : IProps) => {
           <div>
             <Link href='/'>
               <div className='mt-3 flex flex-col gap-2'>
-                <p className='flex gap-2 md:text-md font-bold text-primary'>
+                <p className='flex gap-2 text-xl font-bold text-primary'>
                   {post.postedBy.userName}
                   { ''}
                   <GoVerified 
                   className='text-blue-400 text-md'
                 />
                 </p>
-                <p className='capitalize font-medium text-gray-500
-                              text-xs hidden md:block'>
+                <p className='capitalize font-medium text-gray-400
+                              text-md hidden md:block'>
                   {post.postedBy.userName}
                 </p>
               </div>  
             </Link>
           </div>
         </div>
-              <p className='px-10 text-lg text-gray-600'>{post.caption}</p>
+              <p className='px-10 text-xl mt-10 ml-10 font-semibold text-gray-900'>{post.caption}</p>
               <div className='mt-10 px-10'>
                 {userProfile && (
                   <LikeButton 
