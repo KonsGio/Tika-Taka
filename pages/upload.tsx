@@ -37,7 +37,7 @@ const Upload = () => {
     // Function for uploading video
     const uploadVideo = async (e:any) => {
         const selectedFile = e.target.files[0];
-        const fileTypes = ['video/mp4', 'video/webm', 'video/ogg'];
+        const fileTypes = ['video/mp4', 'video/webm', 'video/ogg', 'video/gif'];
         // If uploaded video is in right format
         if (fileTypes.includes(selectedFile.type)){
             client.assets.upload('file', selectedFile, {
@@ -86,7 +86,7 @@ const Upload = () => {
 
   return (
     <div className='flex w-full h-full absolute left-0 top-[60px] mb-10 pt-10 lg:pt-20 bg-[#f8f8f8] justify-center'>
-        <div className='bg-white rounded-lg cl:h-[80vh] w-[60%] flex gap-6 flex-wrap justify-between items-center p-14 pt-6'>
+        <div className='bg-white rounded-lg xl:h-[80vh] w-[60%] flex gap-6 flex-wrap justify-between items-center p-14 pt-6'>
             <div>
                 <div>
                     <p className='text-2xl font-bold'>Upload Video</p>
@@ -94,7 +94,7 @@ const Upload = () => {
                 </div>
                 <div className='border-dashed rounded-xl border-4 
                     border-gray-200 flex flex-col justify-center 
-                    items-center outline-none mt-10 w-[260px] h=[460px]
+                    items-center outline-none mt-10 w-[260px] h-[460px]
                     p-10 cursor-pointer hover:border-red-300 hover:bg-gray-100'>
                         {isloading ? (
                             <p>Uploading...</p>
@@ -117,7 +117,7 @@ const Upload = () => {
                                                 <p className='font-bold text-xl'>
                                                     <FaCloudUploadAlt className='text-gray-300 text-6xl'/>
                                                 </p>
-                                                <p className='text-xl dont-semibold'>
+                                                <p className='text-xl font-semibold'>
                                                     Upload Video
                                                 </p>
                                             </div>
