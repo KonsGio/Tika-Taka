@@ -54,6 +54,50 @@ const Detail = ({postDetails} : IProps) => {
                 </div>
               </div>
         </div>
+        <div className='relative w-[1000px] md:w-[900px] lg:w-[700px]'>
+          <div className='lg:mt-20 mt-10 '>
+              
+          <div className='flex gap-3 p-2 cursor-pointer font-semibold rounded'>
+          <div className='ml-4 md:w-20 md:h-20 w-16 h-16'>
+            <Link href='/'>
+              {/* 5. You cant put an image as a child component of a link  thats why
+              we create a new empty react fragment to put image inside */}
+              <>
+                <Image 
+                  width={62}
+                  height={62}
+                  className='rounded-full'
+                  src={post.postedBy.image}
+                  alt='profile photo'
+                  layout='responsive'
+                />
+              </>
+            </Link>
+          </div>
+          <div>
+            <Link href='/'>
+              <div className='mt-3 flex flex-col gap-2'>
+                <p className='flex gap-2 md:text-md font-bold text-primary'>
+                  {post.postedBy.userName}
+                  { ''}
+                  <GoVerified 
+                  className='text-blue-400 text-md'
+                />
+                </p>
+                <p className='capitalize font-medium text-gray-500
+                              text-xs hidden md:block'>
+                  {post.postedBy.userName}
+                </p>
+              </div>  
+            </Link>
+          </div>
+        </div>
+              <p className='px-10 text-lg text-gray-600'>{post.caption}</p>
+              <div className='mt-10 px-10'>
+                {}
+              </div>
+          </div>
+        </div>
     </div>
   )
 }
