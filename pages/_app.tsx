@@ -25,6 +25,8 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     // 6. To find clientid we go to https://console.cloud.google.com/ -> create app -> Oauth consent -> Credentials -> create oauth
     <GoogleOAuthProvider clientId={`${process.env.NEXT_PUBLIC_GOOGLE_API_TOKEN}`}>
+                      {/* This setting make the app centered */}
+      <div className='xl:w-[1200px] m-auto overflow-hidden h-[100vh]'>
       <Navbar/>
       {/* we use tailwind -> styles inside jsx */}
       <div className='flex gap-6 md:gap-20'>
@@ -34,6 +36,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <div className='mt-4 flex flex-col gap-10 overflow-auto h-[84vh] videos flex-1'>
           <Component {...pageProps} />
         </div>
+      </div>
       </div>
     </GoogleOAuthProvider>
   ) 
