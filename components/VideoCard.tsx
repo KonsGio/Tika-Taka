@@ -63,11 +63,18 @@ const VideoCard:NextPage<IProps> =  ({post}) => {
             </Link>
           </div>
         </div>
+        
       </div>
+      <div className='text-center'>
+        <Link href={`/detail/${post._id}`}>
+          {post.caption}
+                </Link>
+        </div>
       <div className='lg:ml-20 flex gap-4 relative'>
+            
             <div 
               className='rounded-xl'>
-              <Link href={`/detail/${post._id}`}>
+              
                 {/* More setting for video
                  interface MediaHTMLAttributes<T> extends HTMLAttributes<T> {
                  autoPlay?: boolean | undefined;
@@ -90,9 +97,8 @@ const VideoCard:NextPage<IProps> =  ({post}) => {
                       ref={videoRef}
                       className='lg:w-[700px] h-[300px] md:h-[400px] lg:h-[530px] w-[400px] rounded-2xl cursor-pointer bg:gray-100'
                       src={post.video.asset.url}>
-                      
                   </video>
-              </Link>
+              
             </div>
       </div>
     </div>
