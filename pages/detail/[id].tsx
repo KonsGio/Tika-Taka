@@ -28,15 +28,19 @@ const Detail = ({postDetails} : IProps) => {
 
   const router = useRouter();
 
-  const {userProfile} :any = useAuthStore();
+  const {userProfile} : any = useAuthStore();
 
   const handleLike = async (like:boolean) => {
     if(userProfile){
-      const response = await axios.put(`${BASE_URL}/api/like`, {
+      const {data} = await axios.put(`${BASE_URL}/api/like`, {
         userId:userProfile._id,
         postId:post._id,
         like
       })
+      // We destructure the data of the post that we get
+      // We spread the previews state of the post and we select the 
+      // property that we want to update
+      setPost({ ...post, likes: data.likes});
     }
   }
   
@@ -113,6 +117,7 @@ const Detail = ({postDetails} : IProps) => {
                   <LikeButton 
                   handleLike={ ()=> handleLike(true)}
                   handleDislike={ ()=> handleLike(false)}
+                  likes={post.likes}
                   />
                 )}
               </div>
