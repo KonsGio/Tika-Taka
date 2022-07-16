@@ -27,7 +27,7 @@ export default async function handler(req: NextApiRequest,res: NextApiResponse) 
             {
                 comment,
                 _key:v4(),
-                postedBy: {_type:'PostedBy', _ref: userId}
+                postedBy: {_type:'postedBy', _ref: userId}
             }
         ])
         .commit()
