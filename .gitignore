@@ -8,6 +8,9 @@ tika-taka-sanity-backend/node_modules
 # testing
 /coverage
 
+# env variables
+.env.developement
+
 # next.js
 /.next/
 /out/
