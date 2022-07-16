@@ -5,11 +5,9 @@
 tika-taka-sanity-backend/node_modules
 /.pnp
 .pnp.js
+
 # testing
 /coverage
-
-# env variables
-/.env.developement
 
 # next.js
 /.next/
@@ -21,6 +19,9 @@ tika-taka-sanity-backend/node_modules
 # misc
 .DS_Store
 *.pem
+.env
+.env.production
+.env.development
 
 # debug
 npm-debug.log*
