@@ -9,7 +9,7 @@ tika-taka-sanity-backend/node_modules
 /coverage
 
 # env variables
-.env.developement
+/.env.developement
 
 # next.js
 /.next/
