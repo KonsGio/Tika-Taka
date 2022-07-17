@@ -5,12 +5,21 @@ import create from "zustand";
 import {persist} from 'zustand/middleware';
 import axios from "axios";
 
+// 3.Fetching user
+import { BASE_URL } from "../utils";
+
 // 1. authStore will have an instand return so we wrap the thing ({})
 const authStore = (set:any) => ({
     userProfile:null,
 // 2.Create method addUser set to a function
     addUser:(user:any) => set({userProfile:user}),
-    removeUser: () => set({userProfile:null})
+    removeUser: () => set({userProfile:null}),
+
+    // 4. Creating a new end point to fetch all users from sanity
+    fetchAllUsers : async() => {
+        const response = await axios.get(`${BASE_URL}/api/users`);
+    }
+
 });
 
 const useAuthStore = create(
