@@ -30,7 +30,7 @@ const VideoCard:NextPage<IProps> =  ({post}) => {
       <div>
         <div className='flex gap-3 p-2 cursor-pointer font-semibold rounded'>
           <div className='md:w-16 md:h-16 w-10 h-10'>
-            <Link href='/'>
+            <Link href={`/profile/${post.postedBy._id}`}>
               {/* 5. You cant put an image as a child component of a link  thats why
               we create a new empty react fragment to put image inside */}
               <>
@@ -46,7 +46,7 @@ const VideoCard:NextPage<IProps> =  ({post}) => {
             </Link>
           </div>
           <div>
-            <Link href='/'>
+            <Link href={`/profile/${post.postedBy._id}`}>
               <div className='flex items-center gap-2'>
                 <p className='flex gap-2 items-center md:text-md font-bold text-primary'>
                   {post.postedBy.userName}
