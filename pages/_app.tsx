@@ -6,7 +6,6 @@ import Navbar from '../components/Navbar';
 import Sidebar from '../components/Sidebar';
 import '../styles/globals.css';
 
-
 //5. google auth
 import { GoogleOAuthProvider} from '@react-oauth/google';
 
@@ -44,3 +43,5 @@ function MyApp({ Component, pageProps }: AppProps) {
 }
 
 export default MyApp
+
+// First BUILD upload July 18 2022
