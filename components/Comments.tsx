@@ -1,35 +1,71 @@
-import React, {Dispatch, SetStateAction} from 'react';
+import React, { Dispatch, SetStateAction } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { GoVerified } from 'react-icons/go';
+
 import useAuthStore from '../store/authStore';
 import NoResults from './NoResults';
+import { IUser } from '../types';
 
-// To rif off typescript errors
 interface IProps {
-  isPostingComment: Boolean,
+  isPostingComment: Boolean;
   comment: string;
   setComment: Dispatch<SetStateAction<string>>;
-  addComment: (e: React.FormEvent)=>void;
+  addComment: (e: React.FormEvent) => void;
   comments: IComment[];
 }
 
 interface IComment {
   comment: string;
-  length? :number;
+  length?: number;
   _key: string;
-  postedBy: {_ref: string; _id: string };
+  postedBy: { _ref?: string; _id?: string };
 }
 
-const Comments = ({ comment, setComment, addComment, comments, isPostingComment} : IProps) => {
-  const userProfile = useAuthStore();
+const Comments = ({ comment, setComment, addComment, comments, isPostingComment }: IProps) => {
+  const { allUsers, userProfile }: any = useAuthStore();
 
 
   return (
     <div className='border-t-2 border-gray-200 pt-4 px-10 bg-[#f8f8f8] border-b-2 lg:pb-0 pb-[100px]'>
       <div className='overflow-scroll lg:h-[475px]'>
-        {comments?.length ? (
-          <div>Videos</div>
+        {comments?.length > 0 ? (
+          
+            comments.map((item, idx) => (
+              <>
+                {allUsers.map((user : IUser) => (
+                  user._id === (item.postedBy._id || item.postedBy._ref) && (
+                      <div className='p-2 items-center' key={idx}>
+                        <Link href={`/profile/${user._id}`}>
+                           <div className='flex items-start gap-3'>    
+                                  <div className='w-8 h-8'>
+                                    <Image src={user.image}
+                                      width={34}
+                                      height={34}
+                                      className='rounded-full'
+                                      alt='user profile'
+                                      layout='responsive'
+                                      />
+                                  </div>
+                            <div className='hidden xl:block'>
+                                <p className='flex gap-1 items-center text-md font-bold text-primary lowercase'>
+                                  {user.userName.replaceAll(' ','')}
+                                  <GoVerified className='text-blue-400'/>
+                                </p>
+                                <p className='capitalize text-gray-400'>
+                                  {user.userName}
+                                </p>
+                            </div>
+                            </div>
+                        </Link>
+                        <div>
+                          <p className='ml-11 mt-4'>{item.comment}</p>
+                        </div>
+                      </div>
+                  )
+                ))}
+              </>
+            ))
         ) : (
           <NoResults text='No comments yet!'/>
         )}
