@@ -38,7 +38,8 @@ const Upload = () => {
     // Function for uploading video
     const uploadVideo = async (e:any) => {
         const selectedFile = e.target.files[0];
-        const fileTypes = ['video/mp4', 'video/webm', 'video/ogg', 'video/gif'];
+        const fileTypes = ['video/mp4', 'video/webm', 'video/ogg', 'video/gif', 'image/jpg'];
+
         // If uploaded video is in right format
         if (fileTypes.includes(selectedFile.type)){
             client.assets.upload('file', selectedFile, {
@@ -48,7 +49,7 @@ const Upload = () => {
             .then((data) => {
             //   For this to work we import SanityAssetDocument
                 setVideoAsset(data);
-                setIsloading(true);
+                setIsloading(false);
             })
         }else{
             setIsloading(false);
@@ -177,7 +178,7 @@ const Upload = () => {
                     </select>
                     <div className='flex gap-6 mt-10'>
                             <button
-                            onClick={() => {}}
+                            onClick={() =>{}}
                             type='button'
                             className='border-gray-300 border-2 text-md font-medium p-2 rounded w-28 lg:w-44 outline-none hover:bg-primary'
                             >

@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import '../styles/globals.css'
 import Navbar from '../components/Navbar';
 import Sidebar from '../components/Sidebar';
+import '../styles/globals.css';
 
 
 //5. google auth
