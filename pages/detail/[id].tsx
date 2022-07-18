@@ -111,7 +111,7 @@ const Detail = ({postDetails} : IProps) => {
               
           <div className='flex gap-3 p-2 cursor-pointer font-semibold rounded'>
           <div className='ml-4 md:w-20 md:h-20 w-16 h-16'>
-            <Link href='/'>
+          <Link href={`/profile/${post.postedBy._id}`}>
               {/* 5. You cant put an image as a child component of a link  thats why
               we create a new empty react fragment to put image inside */}
               <>
@@ -127,7 +127,7 @@ const Detail = ({postDetails} : IProps) => {
             </Link>
           </div>
           <div>
-            <Link href='/'>
+          <Link href={`/profile/${post.postedBy._id}`}>
               <div className='mt-3 flex flex-col gap-2'>
                 <p className='flex gap-2 text-xl font-bold text-primary'>
                   {post.postedBy.userName}
