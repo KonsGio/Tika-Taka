@@ -41,6 +41,8 @@ export const topics = [
   },
 ];
 
-export const footerList1 = ['About', 'Newsroom', 'Store', 'Contact', 'Carrers', 'ByteDance', 'Creator Directory']
-export const footerList2 = [ 'TikaTaka for Good','Advertise','Developers','Transparency' ]
-export const footerList3 = [ 'Help', 'Safety', 'Terms', 'Privacy', 'Creator Portal', 'Community Guidelines' ]
+const github = <a href='https://github.com/KonsGio' target='_blank'>My Github</a>
+const portfolio = <a href='https://www.kgio.dev' target='_blank'>My Portfolio</a>
+const linkedin = <a href='https://www.linkedin.com/in/konstantinos-giovanitsas-10b511150/' target='_blank'>LinkedIn</a>
+
+export const footerList1 = [portfolio ,github,linkedin ]
