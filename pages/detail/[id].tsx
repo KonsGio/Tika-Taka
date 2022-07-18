@@ -54,7 +54,7 @@ const Detail = ({postDetails} : IProps) => {
 
 
   // Asyncronous add comment function because it is going to take some time to execute
-  const addComment = async (e) => {
+  const addComment = async (e: { preventDefault: () => void }) => {
     // We add prevent Default so that website doesnt reload
     e.preventDefault();
 
