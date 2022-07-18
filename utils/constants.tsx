@@ -45,4 +45,4 @@ const github = <a href='https://github.com/KonsGio' target='_blank'>Github</a>
 const portfolio = <a href='https://www.kgio.dev' target='_blank'>My Portfolio</a>
 const linkedin = <a href='https://www.linkedin.com/in/konstantinos-giovanitsas-10b511150/' target='_blank'>LinkedIn</a>
 
-export const footerList1 = [portfolio,' | ',github,' | ',linkedin ]
+export const footer = [portfolio,' | ',github,' | ',linkedin ]

@@ -40,7 +40,7 @@ const Navbar = () => {
       {/* 1.link point at home page */}
       <Link href='/'>
         <div className='w-[100px] md:w-[130px]'>
-          <Image
+          <Image 
             className='cursor-pointer'
             src={Logo}
             alt='TikaTaka'
