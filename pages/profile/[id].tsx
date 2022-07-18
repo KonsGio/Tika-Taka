@@ -21,8 +21,8 @@ const Profile = ({data} : IProps ) => {
     const { user, userVideos, userLikedVideos } = data;
 
     const [showUserVideos, setShowUserVideos] = useState(true);
-    const videos = showUserVideos ? 'border-b-2 border:black' : 'text-gray-400'
-    const liked = !showUserVideos ? 'border-b-2 border:black' : 'text-gray-400'  
+    const videos = showUserVideos ? 'border-b-2 border-black' : 'text-gray-400'
+    const liked = !showUserVideos ? 'border-b-2 border-black' : 'text-gray-400'  
 
     const [videosList, setVideosList] = useState<Video[]>([]);
     useEffect(() => {
