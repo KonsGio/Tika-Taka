@@ -67,7 +67,7 @@ const VideoCard:NextPage<IProps> =  ({post}) => {
       </div>
       <div>
         <Link href={`/detail/${post._id}`}>
-          <p className='cursor-pointer hover:text-[#9A100E] ml-10 px-10 text-md font-semibold text-gray-600'>{post.caption}</p>
+          <p className='cursor-pointer hover:text-[#9A100E] ml-10 mb-10 px-10 text-lg font-semibold text-gray-600'>{post.caption}</p>
         </Link>
         </div>
       <div className='lg:ml-20 flex gap-4 relative'>
