@@ -19,7 +19,7 @@ import useAuthStore from '../store/authStore';
 
 const Navbar = () => {
   //4
-  const {userProfile, addUser, removeUser} = useAuthStore();
+  const {userProfile, addUser, removeUser} : any = useAuthStore();
   
   return (
 
