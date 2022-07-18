@@ -16,7 +16,6 @@ interface IProps {
 
 //5. props we expect is videos 8. videos is of a type IProps
 const Home = ({videos}: IProps) => {
-  console.log(videos);
   return (
     <div className='flex flex-col gap-10 videos h-full'>
       {videos.length ? (
@@ -32,13 +31,34 @@ const Home = ({videos}: IProps) => {
 
 //1.To fetch data we use getServerSideProps which will side server render the page and used only if we need to render a page whose data must be fetched at requested time
 //2.We will be fetching videos each time we reload the page
-export const getServerSideProps = async () => {
+export const getServerSideProps = async ({
+
+  query: {topic}
+
+} : {
+
+  query: {topic: string}
+
+}) => {
+
+  let response = null;
+
+  if(topic) {
+
   //3.api request to our own backend
-  const {data} = await axios.get(`${BASE_URL}/api/post`);
+
+    response = await axios.get(`${BASE_URL}/api/discover/${topic}`);
+
+  } else {
+
+    response = await axios.get(`${BASE_URL}/api/post`);
+
+  }
+
 //4.Anything we pass in props will be populated iside real props on const Home: above
   return{
     props:{
-      videos:data
+      videos:response.data
     }
   }
 }

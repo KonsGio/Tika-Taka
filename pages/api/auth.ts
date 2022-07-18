@@ -1,5 +1,5 @@
 // This is our server
-import type { NextApiRequest, NextApiResponse } from 'next'
+import type { NextApiRequest, NextApiResponse } from 'next';
 import { client } from '../../utils/client';
 
 // req:NextApiRequest means we are using typescript
