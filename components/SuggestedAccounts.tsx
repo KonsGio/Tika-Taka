@@ -9,7 +9,7 @@ import { IUser } from '../types';
 
 const SuggestedAccounts = () => {
   
-  const {fetchAllUsers, allUsers } = useAuthStore();
+  const {fetchAllUsers, allUsers } : any = useAuthStore();
 
   // Rendering array of all users in the start
   useEffect(() => {
