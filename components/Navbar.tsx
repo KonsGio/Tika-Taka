@@ -41,6 +41,7 @@ const Navbar = () => {
       <Link href='/'>
         <div className='w-[100px] md:w-[130px]'>
           <Image 
+            priority
             className='cursor-pointer'
             src={Logo}
             alt='TikaTaka'

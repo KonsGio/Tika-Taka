@@ -1,5 +1,5 @@
-import { BsCode, BsEmojiLaughing, BsEmojiSunglasses } from 'react-icons/bs';
-import { GiAndroidMask, GiCakeSlice, GiGalaxy, GiLipstick } from 'react-icons/gi';
+import { BsCode, BsEmojiLaughing } from 'react-icons/bs';
+import { GiAndroidMask, GiCakeSlice } from 'react-icons/gi';
 import { FaPaw, FaMedal, FaGamepad, FaFlushed } from 'react-icons/fa';
 
 export const topics = [
@@ -41,8 +41,11 @@ export const topics = [
   },
 ];
 
-const github = <a href='https://github.com/KonsGio' target='_blank'>Github</a>
-const portfolio = <a href='https://www.kgio.dev' target='_blank'>My Portfolio</a>
-const linkedin = <a href='https://www.linkedin.com/in/konstantinos-giovanitsas-10b511150/' target='_blank'>LinkedIn</a>
+let github = <a href='https://github.com/KonsGio' target='_blank'>Github</a>
+let portfolio = <a href='https://www.kgio.dev' target='_blank'>My Portfolio</a>
+let linkedin = <a href='https://www.linkedin.com/in/konstantinos-giovanitsas-10b511150/' target='_blank'>LinkedIn</a>
 
-export const footer = [portfolio,' | ',github,' | ',linkedin ]
+export const footerList1 = ['My portfolio']
+export const footerList2 = [ 'My Github' ]
+export const footerList3 = [ 'My Linkedin' ]
+
