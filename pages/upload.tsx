@@ -47,7 +47,7 @@ const Upload = () => {
                 filename: selectedFile.name
             })
             .then((data) => {
-            //   For this to work we import SanityAssetDocument
+            //For this to work we import SanityAssetDocument
                 setVideoAsset(data);
                 setIsloading(false);
             })
