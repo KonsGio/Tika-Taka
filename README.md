@@ -59,6 +59,8 @@
 
 * [![React][React.js]][React-url]
 * [![NEXT][Next.js]][NEXT-url]
+* [![NODE][NODE]][NODE-url]
+* [![NPM][NPM]][NPM-url]
 * [![GOOGLE][GOOGLE]][GOOGLE-url]
 * [![JAVASCRIPT][JAVASCRIPT]][JAVASCRIPT-url]
 
@@ -122,6 +124,8 @@ Konstantinos Giovanitsas - <a href="mailto:konstantinos.giovanitsas@yahoo.com">S
 [CSS-url]: https://www.css-com.com
 [GOOGLE]: https://img.shields.io/badge/Console-D14836?style=for-the-badge&logo=google-cloud&logoColor=white
 [GOOGLE-url]: https://console.cloud.google.com/welcome
-
-
+[NODE]: https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white
+[NODE-url]: https://nodejs.org/en/
+[NPM]: https://img.shields.io/badge/NPM-%23000000.svg?style=for-the-badge&logo=npm&logoColor=white
+[NPM-url]: https://www.npmjs.com
 
