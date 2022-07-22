@@ -75,7 +75,7 @@
 * [![KGIO.DEV][SITE]][SITE-url]
 * [![LinkedIn][linkedin-shield]][linkedin-url]
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/28451b73-2e42-4b46-ba80-76413e82c66b/deploy-status)](https://app.netlify.com/sites/tika-taka/deploys)
+* [![Netlify Status](https://api.netlify.com/api/v1/badges/28451b73-2e42-4b46-ba80-76413e82c66b/deploy-status)](https://app.netlify.com/sites/tika-taka/deploys)
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
